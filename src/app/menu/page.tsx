@@ -6,6 +6,7 @@ import Image from "next/image";
 import { menuItems } from "@/data/menu";
 import { Search, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
+import MangaAccent from "@/components/MangaAccent";
 
 export default function MenuPage() {
     const [filter, setFilter] = useState<"all" | "rice-bowls">("all");
@@ -25,7 +26,10 @@ export default function MenuPage() {
                 {/* Header & Controls */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-12 space-y-6 md:space-y-0">
                     <div>
-                        <h1 className="text-4xl md:text-5xl font-extrabold text-espresso tracking-tight mb-2">Our Menu</h1>
+                        <h1 className="text-4xl md:text-5xl font-extrabold text-espresso tracking-tight mb-3 relative inline-block z-10">
+                            <MangaAccent styleType={2} className="-top-3 -left-6 text-terracotta/80" />
+                            Our Menu
+                        </h1>
                         <p className="text-muted-text text-lg max-w-xl">
                             Select a category to explore fresh, high-quality ingredients tailor-made for your bowl.
                         </p>
@@ -70,13 +74,15 @@ export default function MenuPage() {
                         <div key={item.id} className="group bg-white rounded-3xl border border-border-light overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col">
                             <div className="aspect-[4/3] bg-gray-50 flex items-center justify-center relative overflow-hidden border-b border-border-light">
                                 {item.image ? (
-                                    <Image
-                                        src={item.image}
-                                        alt={item.name}
-                                        fill
-                                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                                        sizes="(max-width: 768px) 100vw, 33vw"
-                                    />
+                                    <div className="absolute inset-6">
+                                        <Image
+                                            src={item.image}
+                                            alt={item.name}
+                                            fill
+                                            className="object-contain group-hover:scale-110 transition-transform duration-500"
+                                            sizes="(max-width: 768px) 100vw, 33vw"
+                                        />
+                                    </div>
                                 ) : (
                                     <span className="text-5xl relative z-10 opacity-60 group-hover:scale-110 transition-transform duration-500">
                                         {item.category === "rice-bowls" ? "🍲" : "🥗"}
@@ -85,10 +91,12 @@ export default function MenuPage() {
                                 <div className="absolute inset-0 bg-gradient-to-br from-olive/5 to-terracotta/5 pointer-events-none" />
                             </div>
                             <div className="p-6 flex flex-col flex-grow">
-                                <div className="flex justify-between items-start mb-3">
-                                    <h3 className="text-xl font-bold text-espresso">{item.name}</h3>
-                                    <span className="font-bold text-terracotta bg-terracotta/10 px-3 py-1 rounded-full text-sm">
-                                        {item.basePrice} ETB
+                                <div className="flex justify-between items-start mb-4 pt-1">
+                                    <h3 className="text-xl font-bold text-espresso relative inline-block z-10">
+                                        <span className="brush-highlight">{item.name}</span>
+                                    </h3>
+                                    <span className="font-bold text-terracotta px-1 mt-1 shrink-0">
+                                        <span className="brush-highlight-dark text-sm inline-block scale-90">{item.basePrice} ETB</span>
                                     </span>
                                 </div>
                                 <p className="text-muted-text text-sm mb-6 flex-grow">{item.description}</p>

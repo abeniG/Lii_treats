@@ -78,14 +78,16 @@ export default function Home() {
               <div className="absolute inset-0 rounded-3xl bg-accent/8 blur-2xl scale-95 pointer-events-none" />
 
               <div className="relative w-full max-w-[400px] md:max-w-[440px] aspect-[4/5] rounded-3xl shadow-2xl border border-border-light overflow-hidden bg-surface">
-                <Image
-                  src="/images/Chicken Bowl.png"
-                  alt="Signature Chicken Bowl"
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 768px) 90vw, 440px"
-                  priority
-                />
+                <div className="absolute inset-8 md:inset-12">
+                  <Image
+                    src="/images/Chicken Bowl.png"
+                    alt="Signature Chicken Bowl"
+                    fill
+                    className="object-contain object-center"
+                    sizes="(max-width: 768px) 90vw, 440px"
+                    priority
+                  />
+                </div>
 
                 {/* ── STEAM EFFECT ─── */}
                 <div aria-hidden="true">
@@ -141,13 +143,15 @@ export default function Home() {
                   </span>
                 )}
                 <div className="aspect-[5/4] relative overflow-hidden bg-surface">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    fill
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
+                  <div className="absolute inset-6">
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      fill
+                      className="object-contain object-center group-hover:scale-110 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
                   <div className="flex justify-between items-start mb-3 pt-1">

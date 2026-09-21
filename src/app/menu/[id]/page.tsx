@@ -61,14 +61,16 @@ export default function CustomizationPage({ params }: { params: Promise<{ id: st
                     {/* Image Area */}
                     <div className="aspect-square bg-gray-50 rounded-2xl border border-border-light flex items-center justify-center relative overflow-hidden">
                         {item.image ? (
-                            <Image
-                                src={item.image}
-                                alt={item.name}
-                                fill
-                                className="object-cover"
-                                sizes="(max-width: 768px) 100vw, 50vw"
-                                priority
-                            />
+                            <div className="absolute inset-6 md:inset-10">
+                                <Image
+                                    src={item.image}
+                                    alt={item.name}
+                                    fill
+                                    className="object-contain"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    priority
+                                />
+                            </div>
                         ) : (
                             <>
                                 <div className="absolute inset-0 bg-gradient-to-tr from-olive/10 to-terracotta/5" />
