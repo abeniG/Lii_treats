@@ -5,6 +5,7 @@ import { ShoppingCart, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { useCart } from "@/context/CartContext";
+import MangaAccent from "@/components/MangaAccent";
 
 export default function Navigation() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -35,9 +36,11 @@ export default function Navigation() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-20">
                     {/* Logo — Kaushan Script brush font */}
-                    <Link href="/" className="flex-shrink-0 flex items-center">
-                        <span className="font-display text-3xl tracking-wide text-primary">
+                    <Link href="/" className="flex-shrink-0 flex items-center relative z-10">
+                        <MangaAccent styleType={1} className="-left-4 -top-3 text-secondary-accent/80 scale-75" />
+                        <span className="font-display text-3xl tracking-wide text-primary relative">
                             Lii<span className="text-secondary-accent">_</span>treats
+                            <MangaAccent styleType={3} className="-right-6 -bottom-1 text-primary scale-50" />
                         </span>
                     </Link>
 

@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { ChevronLeft, Check, Minus, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
+import MangaAccent from "@/components/MangaAccent";
 
 export default function CustomizationPage({ params }: { params: Promise<{ id: string }> }) {
     const resolvedParams = use(params);
@@ -79,18 +80,25 @@ export default function CustomizationPage({ params }: { params: Promise<{ id: st
                     </div>
 
                     <div className="flex flex-col">
-                        <h1 className="text-3xl font-extrabold text-espresso mb-3">{item.name}</h1>
+                        <h1 className="text-3xl font-extrabold text-espresso mb-4 mt-2 relative inline-block self-start z-10">
+                            <span className="brush-highlight">{item.name}</span>
+                            <MangaAccent styleType={1} className="-top-3 -right-6 text-terracotta" />
+                        </h1>
                         <p className="text-muted-text mb-6 pb-6 border-b border-border-light">{item.description}</p>
 
                         <div className="flex items-center justify-between mb-8">
-                            <span className="text-xl font-bold text-espresso">Base Price</span>
+                            <span className="text-xl font-bold text-espresso">
+                                <span className="brush-highlight-dark">Base Price</span>
+                            </span>
                             <span className="text-xl font-bold text-terracotta">{item.basePrice} ETB</span>
                         </div>
 
                         {/* Customization Options */}
                         {item.toppingsAllowed.length > 0 && (
                             <div className="mb-8">
-                                <h3 className="text-lg font-bold text-espresso mb-4">Add Toppings (Optional)</h3>
+                                <h3 className="text-lg font-bold text-espresso mb-5">
+                                    <span className="brush-highlight-dark px-1">Add Toppings</span>
+                                </h3>
                                 <div className="space-y-3">
                                     {item.toppingsAllowed.map(topping => {
                                         const isSelected = selectedToppings.some(t => t.id === topping.id);

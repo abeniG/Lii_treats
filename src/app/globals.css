@@ -279,3 +279,44 @@ body {
 .reveal-on-scroll {
   animation: section-fade-up 0.7s ease-out both;
 }
+
+/* ─── BRUSH STROKE & DECORATIVE ACCENTS ─────────────────────────── */
+
+.brush-highlight {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.brush-highlight::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -8px;
+  right: -8px;
+  /* Earthy accent - subtle muted olive/terracotta blend visually, using border-light with opacity */
+  background-image: url("data:image/svg+xml,%3Csvg preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40'%3E%3Cpath d='M3.456,19.231 C-1.123,12.123 15.123,3.123 54.123,5.123 C113.123,7.123 150.123,2.123 194.123,8.123 C200.123,12.123 198.123,22.123 192.123,32.123 C155.123,38.123 115.123,33.123 55.123,35.123 C20.123,36.123 5.456,23.231 3.456,19.231 Z' fill='%23E4D6C6' opacity='0.7'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  z-index: -1;
+}
+
+.brush-highlight-dark {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  color: #FFF9F0 !important;
+}
+
+.brush-highlight-dark::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  bottom: -8px;
+  left: -12px;
+  right: -12px;
+  /* Dark espresso brown: #3E2418 */
+  background-image: url("data:image/svg+xml,%3Csvg preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40'%3E%3Cpath d='M4.1,20 C-2,8 15,1 45,3 C95,5 155,0 190,4 C205,8 198,32 188,38 C155,42 90,38 45,39 C10,39 6,28 4.1,20 Z' fill='%233E2418'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  z-index: -1;
+}

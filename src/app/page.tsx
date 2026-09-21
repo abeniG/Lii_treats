@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Leaf, Clock, ShoppingBag } from "lucide-react";
+import MangaAccent from "@/components/MangaAccent";
 
 const featuredMenu = [
   {
@@ -47,11 +48,12 @@ export default function Home() {
               <span className="font-body text-secondary-accent font-semibold tracking-widest uppercase text-xs">
                 Fresh &amp; Customizable
               </span>
-              <h1 className="font-heading text-5xl md:text-6xl text-primary leading-[1.1]">
+              <h1 className="font-heading text-5xl md:text-6xl text-primary leading-[1.1] relative">
+                <MangaAccent styleType={1} className="-top-3 -left-5 text-secondary-accent" />
                 Modern Rice Bowls,<br />
-                <span className="text-secondary-accent">Engineered</span> for Taste.
+                <span className="text-secondary-accent inline-block relative">Engineered<MangaAccent styleType={2} className="-bottom-1 -right-6 text-accent" /></span> for Taste.
               </h1>
-              <p className="font-body text-muted max-w-md leading-relaxed text-base">
+              <p className="font-body text-muted max-w-md leading-relaxed text-base pt-2">
                 Premium flavors, bold ingredients, complete customization — all at Lii_treats.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
@@ -99,9 +101,11 @@ export default function Home() {
                     <p className="font-body text-secondary-accent text-[10px] font-semibold uppercase tracking-widest mb-0.5">
                       Signature Bowl
                     </p>
-                    <h3 className="font-display text-white text-lg leading-none">Chicken Bowl</h3>
+                    <h3 className="font-display text-white text-lg leading-none mt-1">
+                      <span className="brush-highlight-dark">Chicken Bowl</span>
+                    </h3>
                   </div>
-                  <span className="font-price text-xl text-secondary-accent">400 ETB</span>
+                  <span className="font-price text-xl text-secondary-accent brush-highlight-dark">400 ETB</span>
                 </div>
               </div>
             </div>
@@ -118,7 +122,10 @@ export default function Home() {
               <span className="font-body text-secondary-accent text-xs font-semibold uppercase tracking-widest block mb-2">
                 What we serve
               </span>
-              <h2 className="font-heading text-4xl text-primary">Our Signature Bowls</h2>
+              <h2 className="font-heading text-4xl text-primary relative inline-block">
+                Our Signature Bowls
+                <MangaAccent styleType={3} className="-top-2 -right-8 text-accent" />
+              </h2>
             </div>
             <Link href="/menu" className="hidden sm:inline-flex items-center font-body text-secondary-accent font-semibold hover:opacity-80 transition-opacity text-sm">
               Full menu <ArrowRight className="ml-1.5 w-4 h-4" />
@@ -143,9 +150,13 @@ export default function Home() {
                   />
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="font-heading text-xl text-primary">{item.name}</h3>
-                    <span className="font-price text-secondary-accent text-base">{item.price} ETB</span>
+                  <div className="flex justify-between items-start mb-3 pt-1">
+                    <h3 className="font-heading text-xl text-primary relative inline-block z-10">
+                      <span className="brush-highlight">{item.name}</span>
+                    </h3>
+                    <span className="font-price text-secondary-accent text-base mt-2 -mr-1">
+                      <span className="brush-highlight-dark text-sm inline-block scale-90">{item.price} ETB</span>
+                    </span>
                   </div>
                   <p className="font-body text-muted text-sm mb-5 flex-grow leading-relaxed">{item.desc}</p>
                   <Link
@@ -175,7 +186,10 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <h2 className="font-heading text-4xl mb-4 text-white">Taste the Difference</h2>
+            <h2 className="font-heading text-4xl mb-4 text-white relative inline-block z-10">
+              Taste the Difference
+              <MangaAccent styleType={2} className="-top-3 -right-6 text-white/50" />
+            </h2>
             <p className="font-body text-white/70 leading-relaxed">
               We bring precision and care to your everyday nourishment — seamlessly from order to delivery.
             </p>
